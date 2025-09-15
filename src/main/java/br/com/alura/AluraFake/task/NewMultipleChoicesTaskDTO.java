@@ -1,5 +1,6 @@
 package br.com.alura.AluraFake.task;
 
+import br.com.alura.AluraFake.course.Course;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
@@ -12,6 +13,17 @@ public record NewMultipleChoicesTaskDTO(
         @Size(min = 4, max = 255, message = "O enunciado da tarefa possui quantidade de caracteres inválidos")
         String statement,
         @Size(min = 3, max = 5, message = "A tarefa possui numero de alternativas inválido")
-        List<NewChoiceDTO> options
+        List<ChoiceDTO> options
 
-){}
+) implements TaskWithChoices{
+
+    @Override
+    public Task toModel(Course course) {
+        return new MultipleChoicesTask(
+                statement,
+                order,
+                course,
+                options.stream().map(ChoiceDTO::toModel).toList()
+        );
+    }
+}
