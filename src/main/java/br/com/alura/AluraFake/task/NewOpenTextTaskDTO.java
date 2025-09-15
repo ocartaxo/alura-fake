@@ -13,7 +13,7 @@ public record NewOpenTextTaskDTO(
         Long courseId,
         @Size(min = 4, max = 255, message = "O enunciado da tarefa possui quantidade de caracteres inválidos")
         String statement
-) implements TaskWithChoices {
+) implements TaskDTO {
 
     @Override
     public Task toModel(Course course) {

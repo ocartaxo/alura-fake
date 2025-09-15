@@ -15,7 +15,7 @@ public record NewMultipleChoicesTaskDTO(
         @Size(min = 3, max = 5, message = "A tarefa possui numero de alternativas inválido")
         List<ChoiceDTO> options
 
-) implements TaskWithChoices{
+) implements TaskDTO {
 
     @Override
     public Task toModel(Course course) {

@@ -4,7 +4,7 @@ import br.com.alura.AluraFake.course.Course;
 
 import java.util.List;
 
-public interface TaskWithChoices {
+public interface TaskDTO {
 
     Task toModel(Course course);
 

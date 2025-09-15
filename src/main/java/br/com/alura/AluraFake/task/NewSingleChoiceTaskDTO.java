@@ -14,7 +14,7 @@ public record NewSingleChoiceTaskDTO(
         int order,
         @Size(min = 2, max = 5, message = "Quantidade de opções inválida")
         List<ChoiceDTO> options
-) implements TaskWithChoices {
+) implements TaskDTO {
     public SingleChoiceTask toModel(Course course) {
         return new SingleChoiceTask(
                 statement,
