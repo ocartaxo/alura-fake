@@ -1,5 +1,6 @@
 package br.com.alura.AluraFake.task;
 
+import br.com.alura.AluraFake.course.Course;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
@@ -11,7 +12,7 @@ public class OpenTextTask extends Task {
     public OpenTextTask() {
     }
 
-    public OpenTextTask(String statement, int order) {
-        super(statement, order);
+    public OpenTextTask(String statement, int order, Course course) {
+        super(statement, order, course);
     }
 }
