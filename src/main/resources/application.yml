@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: AluraFake
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/alurafake?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    username: root
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  flyway:
+    validate-on-migrate: false
