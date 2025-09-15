@@ -26,4 +26,9 @@ public record NewMultipleChoicesTaskDTO(
                 options.stream().map(ChoiceDTO::toModel).toList()
         );
     }
+
+    @Override
+    public Type type() {
+        return Type.MULTIPLE_CHOICE;
+    }
 }

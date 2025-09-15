@@ -23,4 +23,9 @@ public record NewSingleChoiceTaskDTO(
                 options.stream().map(ChoiceDTO::toModel).toList()
         );
     }
+
+    @Override
+    public Type type() {
+        return Type.SINGLE_CHOICE;
+    }
 }

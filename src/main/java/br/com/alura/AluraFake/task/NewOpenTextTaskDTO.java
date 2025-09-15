@@ -24,4 +24,9 @@ public record NewOpenTextTaskDTO(
     public List<ChoiceDTO> options() {
         return Collections.emptyList();
     }
+
+    @Override
+    public Type type() {
+        return Type.OPEN_TEXT;
+    }
 }

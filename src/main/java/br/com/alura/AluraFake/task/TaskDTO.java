@@ -14,4 +14,6 @@ public interface TaskDTO {
     int order();
 
     List<ChoiceDTO> options();
+
+    Type type();
 }
