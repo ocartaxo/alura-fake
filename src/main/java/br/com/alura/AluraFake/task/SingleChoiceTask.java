@@ -1,5 +1,6 @@
 package br.com.alura.AluraFake.task;
 
+import br.com.alura.AluraFake.course.Course;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -18,7 +19,9 @@ public class SingleChoiceTask extends Task {
     public SingleChoiceTask() {
     }
 
-    public SingleChoiceTask(String statement, int order) {
-        super(statement, order);
+    public SingleChoiceTask(String statement, int order, Course course, List<Choice> choices) {
+        super(statement, order, course);
+        this.choices = choices;
     }
+
 }

@@ -32,10 +32,9 @@ public abstract class Task {
     public Task() {
     }
 
-    public Task(String statement, int order) {
+    public Task(String statement, int order, Course course) {
         this.statement = statement;
         this.order = order;
+        this.course = course;
     }
-
-
 }
