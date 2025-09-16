@@ -8,6 +8,8 @@ import java.util.stream.IntStream;
 @Component
 public class TaskOrderValidator implements PublishCourseValidator {
 
+    public static final String ERROR_MSG = "Tasks orders from doesn't match";
+
     @Override
     public void validate(Course course) {
         final var tasksOrders = course.getTasks().stream()
@@ -16,13 +18,13 @@ public class TaskOrderValidator implements PublishCourseValidator {
                 .toList();
 
 
-        final var expectedOrders = IntStream.range(1, tasksOrders.size())
+        final var expectedOrders = IntStream.range(1, tasksOrders.size()+1)
                 .boxed()
                 .toList();
 
 
         if(!tasksOrders.equals(expectedOrders)) {
-            throw new CourseValidatorException("Orders doesn't match");
+            throw new CourseValidationException(ERROR_MSG);
         }
     }
 }

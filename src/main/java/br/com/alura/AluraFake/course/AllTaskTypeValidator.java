@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 @Component
 public class AllTaskTypeValidator implements PublishCourseValidator {
 
+    public static final String ERROR_MSG = "Course not contains all task types";
     private final PublishCourseValidator nextValidator;
 
     public AllTaskTypeValidator(PublishCourseValidator taskOrderValidator) {
@@ -23,7 +24,7 @@ public class AllTaskTypeValidator implements PublishCourseValidator {
         final var courseTasksType = course.getTasks().stream().map(Task::getTaskType).collect(Collectors.toSet());
 
         if(!courseTasksType.containsAll(taskTypes())) {
-            throw new CourseValidatorException("Course not contains all task types");
+            throw new CourseValidationException(ERROR_MSG);
         }
 
         nextValidator.validate(course);
