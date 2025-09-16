@@ -6,7 +6,7 @@ public class UserNotFoundException extends RuntimeException {
     private String field;
 
     public UserNotFoundException() {
-        this.field = DEFAULT_MSG;
+        super(DEFAULT_MSG);
         this.field = "userId";
     }
 
