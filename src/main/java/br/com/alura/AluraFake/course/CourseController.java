@@ -3,6 +3,7 @@ package br.com.alura.AluraFake.course;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,12 +34,12 @@ public class CourseController {
     }
 
     @GetMapping("/course/all")
-    public ResponseEntity<List<CourseListItemDTO>> createCourse() {
+    public ResponseEntity<List<CourseListItemDTO>> listAllCourse() {
         return ResponseEntity.ok(findAllCourseUseCase.execute());
     }
 
     @PostMapping("/course/{id}/publish")
-    public ResponseEntity createCourse(@PathVariable("id") Long id) {
+    public ResponseEntity publishCourse(@PathVariable("id") Long id) {
         publishCourseUseCase.execute(id);
         return ResponseEntity.ok().build();
     }
