@@ -38,4 +38,28 @@ public abstract class Task {
         this.order = order;
         this.course = course;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getStatement() {
+        return statement;
+    }
+
+    public int getOrder() {
+        return order;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public Type getTaskType() {
+        return taskType;
+    }
 }
