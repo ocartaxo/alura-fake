@@ -3,30 +3,28 @@ package br.com.alura.AluraFake.course;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Component
 public class PublishCourseUseCase {
 
     private final SaveCourseService saveCourseService;
     private final FindCourseService findCourseService;
-    private final List<PublishCourseValidator> validators;
+    private final PublishCourseValidator validator;
 
     public PublishCourseUseCase(
             SaveCourseService saveCourseService,
             FindCourseService findCourseService,
-            List<PublishCourseValidator> validators
+            PublishCourseValidator buildingStatusValidator
     ) {
         this.saveCourseService = saveCourseService;
         this.findCourseService = findCourseService;
-        this.validators = validators;
+        this.validator = buildingStatusValidator;
     }
 
     @Transactional
     void execute(Long id) {
         final var course = findCourseService.findCourseById(id);
 
-        validators.forEach(validator -> validator.validate(course));
+        validator.validate(course);
 
         course.publish();
 

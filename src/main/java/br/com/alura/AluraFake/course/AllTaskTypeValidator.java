@@ -12,8 +12,8 @@ public class AllTaskTypeValidator implements PublishCourseValidator {
 
     private final PublishCourseValidator nextValidator;
 
-    public AllTaskTypeValidator(PublishCourseValidator nextValidator) {
-        this.nextValidator = nextValidator;
+    public AllTaskTypeValidator(PublishCourseValidator taskOrderValidator) {
+        this.nextValidator = taskOrderValidator;
     }
 
 
