@@ -7,13 +7,15 @@ import java.util.List;
 @Component
 public class StatementMatchOptionsValidator implements TaskValidator {
 
+    public static final String ERROR_MSG = "Options can not match task statement";
+
     @Override
     public void validate(TaskDTO taskWihOptionsDTO) {
         final var optionsText =  taskWihOptionsDTO.options().stream().map(ChoiceDTO::option).toList();
         final var statement = taskWihOptionsDTO.statement();
 
         if(optionsText.stream().anyMatch(statement::equalsIgnoreCase)) {
-            throw new TaskValidationException("Options can not match task statement");
+            throw new TaskValidationException("options", ERROR_MSG);
         }
     }
 

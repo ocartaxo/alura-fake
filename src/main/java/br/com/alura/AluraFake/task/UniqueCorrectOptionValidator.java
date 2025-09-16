@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 public class UniqueCorrectOptionValidator implements TaskValidator {
 
     private static final int MAX_CORRECT_OPTION_NUMBER = 1;
+    public static final String ERROR_MSG = "Correct options are not unique";
 
     @Override
     public void validate(TaskDTO dto) {
@@ -17,7 +18,7 @@ public class UniqueCorrectOptionValidator implements TaskValidator {
         );
 
         if (optionsOccurrences.get(true) > MAX_CORRECT_OPTION_NUMBER) {
-            throw new TaskValidationException("");
+            throw new TaskValidationException("options", ERROR_MSG);
         }
     }
 

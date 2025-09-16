@@ -7,6 +7,7 @@ import java.util.List;
 @Component
 public class PredecessorTaskOrderValidator implements TaskValidator {
 
+    public static final String ERROR_MSG = "Task order is invalid";
     private final ExistsTaskService existsTaskService;
 
     public PredecessorTaskOrderValidator(ExistsTaskService existsTaskService) {
@@ -16,7 +17,7 @@ public class PredecessorTaskOrderValidator implements TaskValidator {
     @Override
     public void validate(TaskDTO dto) {
          if (dto.order() != 1 && !existsTaskService.existsTaskByOrder(dto.order()-1)) {
-            throw new TaskValidationException("Task order is invalid");
+            throw new TaskValidationException("order", ERROR_MSG);
          }
     }
 

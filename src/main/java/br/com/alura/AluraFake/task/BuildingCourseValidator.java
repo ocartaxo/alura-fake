@@ -21,7 +21,7 @@ public class BuildingCourseValidator implements TaskValidator {
     public void validate(TaskDTO dto) {
         final var courseStatus = findCourseService.findCourseStatusById(dto.courseId());
         if(!Status.BUILDING.equals(courseStatus)) {
-            throw new TaskValidationException(ERROR_MSG.formatted(courseStatus));
+            throw new TaskValidationException("course.status", ERROR_MSG.formatted(courseStatus));
         }
     }
 

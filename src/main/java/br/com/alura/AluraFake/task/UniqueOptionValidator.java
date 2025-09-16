@@ -8,13 +8,15 @@ import java.util.List;
 @Component
 public class UniqueOptionValidator implements TaskValidator {
 
+    public static final String ERROR_MSG = "Task can not contains repeated options";
+
     @Override
     public void validate(TaskDTO dto) {
         final var optionsText =  dto.options().stream().map(ChoiceDTO::option).toList();
         final var uniqueChoices = new HashSet<>(optionsText);
 
         if (uniqueChoices.size() < dto.options().size()) {
-           throw new TaskValidationException("Task can not contains repeated options");
+           throw new TaskValidationException("options", ERROR_MSG);
         }
     }
 

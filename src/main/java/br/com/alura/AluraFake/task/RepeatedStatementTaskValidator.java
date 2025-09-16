@@ -7,6 +7,7 @@ import java.util.List;
 @Component
 public class RepeatedStatementTaskValidator implements TaskValidator {
 
+    public static final String ERROR_MSG = "Task with given statement already exists";
     private final ExistsTaskService  existsTaskService;
 
     public RepeatedStatementTaskValidator(ExistsTaskService existsTaskService) {
@@ -16,7 +17,7 @@ public class RepeatedStatementTaskValidator implements TaskValidator {
     @Override
     public void validate(TaskDTO dto) {
         if(existsTaskService.existsByStatement(dto.statement())){
-            throw new TaskValidationException("Task with given statement already exists");
+            throw new TaskValidationException("statement", ERROR_MSG);
         }
     }
 

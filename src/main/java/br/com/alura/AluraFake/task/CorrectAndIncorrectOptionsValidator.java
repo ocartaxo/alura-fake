@@ -10,6 +10,7 @@ public class CorrectAndIncorrectOptionsValidator implements TaskValidator {
 
     private static final int MIN_CORRECT_OPTIONS = 2;
     private static final int MIN_INCORRECT_OPTIONS = 1;
+    public static final String ERROR_MSG = "Minimum number of correct and incorrect options do not achieved";
 
     @Override
     public void validate(TaskDTO multipleChoicesTaskDTO) {
@@ -17,8 +18,8 @@ public class CorrectAndIncorrectOptionsValidator implements TaskValidator {
                 Collectors.groupingBy(ChoiceDTO::isCorrect, Collectors.counting())
         );
 
-        if (occ.get(true) <= MIN_CORRECT_OPTIONS && occ.get(false) <= MIN_INCORRECT_OPTIONS) {
-           throw new TaskValidationException("Minimum number of correct and incorrect options do not achieved");
+        if (occ.get(true) < MIN_CORRECT_OPTIONS && occ.get(false) < MIN_INCORRECT_OPTIONS) {
+           throw new TaskValidationException("options", ERROR_MSG);
         }
     }
 
