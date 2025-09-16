@@ -7,11 +7,11 @@ import jakarta.validation.constraints.Size;
 import java.util.List;
 
 public record NewSingleChoiceTaskDTO(
+        @Positive(message = "Deve ser um valor positivo")
+        int order,
         Long courseId,
         @Size(min = 4, max = 255, message = "Tamanho inválido")
         String statement,
-        @Positive(message = "Deve ser um valor positivo")
-        int order,
         @Size(min = 2, max = 5, message = "Quantidade de opções inválida")
         List<ChoiceDTO> options
 ) implements TaskDTO {
