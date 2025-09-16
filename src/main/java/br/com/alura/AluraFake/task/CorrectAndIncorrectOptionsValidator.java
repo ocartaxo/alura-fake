@@ -17,7 +17,7 @@ public class CorrectAndIncorrectOptionsValidator implements TaskValidator {
                 Collectors.groupingBy(ChoiceDTO::isCorrect, Collectors.counting())
         );
 
-        if (occ.get(true) >= MIN_CORRECT_OPTIONS && occ.get(false) >= MIN_INCORRECT_OPTIONS) {
+        if (occ.get(true) <= MIN_CORRECT_OPTIONS && occ.get(false) <= MIN_INCORRECT_OPTIONS) {
            throw new TaskValidationException("Minimum number of correct and incorrect options do not achieved");
         }
     }
