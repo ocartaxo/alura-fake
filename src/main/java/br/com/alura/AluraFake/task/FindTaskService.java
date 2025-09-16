@@ -11,7 +11,4 @@ public class FindTaskService {
         this.taskRepository = taskRepository;
     }
 
-
-
-
 }
