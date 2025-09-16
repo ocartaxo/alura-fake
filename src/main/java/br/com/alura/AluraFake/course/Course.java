@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import org.springframework.util.Assert;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -35,6 +36,7 @@ public class Course {
         this.instructor = instructor;
         this.description = description;
         this.status = Status.BUILDING;
+        this.tasks = new ArrayList<>();
     }
 
     public Long getId() {
@@ -73,8 +75,12 @@ public class Course {
         return tasks;
     }
 
-    void publish() {
+    public void publish() {
         this.publishedAt = LocalDateTime.now();
         this.status = Status.PUBLISHED;
+    }
+
+    public void addTask(Task task) {
+        this.tasks.add(task);
     }
 }
