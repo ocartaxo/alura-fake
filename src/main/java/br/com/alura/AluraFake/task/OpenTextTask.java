@@ -8,7 +8,6 @@ import jakarta.persistence.Entity;
 @DiscriminatorValue(Type.Constants.OPEN_TEXT)
 public class OpenTextTask extends Task {
 
-
     public OpenTextTask() {
     }
 
