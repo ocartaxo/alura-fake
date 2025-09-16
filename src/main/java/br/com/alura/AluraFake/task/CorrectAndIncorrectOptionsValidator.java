@@ -18,7 +18,7 @@ public class CorrectAndIncorrectOptionsValidator implements TaskValidator {
         );
 
         if (occ.get(true) >= MIN_CORRECT_OPTIONS && occ.get(false) >= MIN_INCORRECT_OPTIONS) {
-           throw new TaskValidationException("");
+           throw new TaskValidationException("Minimum number of correct and incorrect options do not achieved");
         }
     }
 
