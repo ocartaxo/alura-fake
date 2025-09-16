@@ -14,7 +14,7 @@ public class FindCourseService {
     }
 
     public Status findCourseStatusById(Long id) {
-        return courseRepository.findStatusById(id);
+        return courseRepository.findCourseStatusById(id);
     }
 
     public Course findCourseById(Long id) {
