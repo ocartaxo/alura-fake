@@ -18,6 +18,7 @@ public class SaveTaskService {
         final var course = courseRepository.getReferenceById(taskDTO.courseId());
 
         final var model = taskDTO.toModel(course);
+        model.addToCourse(course);
 
         taskRepository.save(model);
     }
