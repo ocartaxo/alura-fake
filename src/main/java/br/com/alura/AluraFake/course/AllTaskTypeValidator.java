@@ -1,0 +1,36 @@
+package br.com.alura.AluraFake.course;
+
+import br.com.alura.AluraFake.task.Task;
+import br.com.alura.AluraFake.task.Type;
+import org.springframework.stereotype.Component;
+
+import java.util.Set;
+import java.util.stream.Collectors;
+
+@Component
+public class AllTaskTypeValidator implements PublishCourseValidator {
+
+    private final PublishCourseValidator nextValidator;
+
+    public AllTaskTypeValidator(PublishCourseValidator nextValidator) {
+        this.nextValidator = nextValidator;
+    }
+
+
+    @Override
+    public void validate(Course course) {
+
+        final var courseTasksType = course.getTasks().stream().map(Task::getTaskType).collect(Collectors.toSet());
+
+        if(!courseTasksType.containsAll(taskTypes())) {
+            throw new CourseValidatorException("Course not contains all task types");
+        }
+
+        nextValidator.validate(course);
+    }
+
+    private Set<Type> taskTypes() {
+        return Set.of(Type.values());
+    }
+
+}
