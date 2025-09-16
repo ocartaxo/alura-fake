@@ -28,7 +28,6 @@ public class PublishCourseUseCase {
 
         course.publish();
 
-        //TODO verificar se precisa salvar o curso
     }
 }
 
