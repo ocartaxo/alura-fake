@@ -62,4 +62,9 @@ public abstract class Task {
     public Type getTaskType() {
         return taskType;
     }
+
+    public void addToCourse(Course course) {
+        this.course = course;
+        course.addTask(this);
+    }
 }
