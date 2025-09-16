@@ -17,7 +17,7 @@ public class TaskController {
     public ResponseEntity newOpenTextExercise(
             @Valid @RequestBody NewOpenTextTaskDTO request
     ) {
-        createTasksUseCase.create(request);
+        createTasksUseCase.execute(request);
         return ResponseEntity.ok().build();
     }
 
@@ -25,7 +25,7 @@ public class TaskController {
     public ResponseEntity newSingleChoice(
             @Valid @RequestBody NewSingleChoiceTaskDTO request
     ) {
-        createTasksUseCase.create(request);
+        createTasksUseCase.execute(request);
         return ResponseEntity.ok().build();
     }
 
@@ -33,7 +33,7 @@ public class TaskController {
     public ResponseEntity newMultipleChoice(
             @Valid @RequestBody NewMultipleChoicesTaskDTO request
     ) {
-        createTasksUseCase.create(request);
+        createTasksUseCase.execute(request);
         return ResponseEntity.ok().build();
     }
 
