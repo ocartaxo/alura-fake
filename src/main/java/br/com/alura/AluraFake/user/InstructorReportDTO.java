@@ -7,7 +7,7 @@ import java.util.List;
 public record InstructorReportDTO(
         String name,
         String email,
-        int publishedCoursesQuantity,
+        long publishedCoursesQuantity,
         List<CourseReportDTO> courses
 ) {
 }

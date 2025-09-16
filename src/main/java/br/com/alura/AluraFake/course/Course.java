@@ -83,4 +83,8 @@ public class Course {
     public void addTask(Task task) {
         this.tasks.add(task);
     }
+
+    public boolean isPublished() {
+        return Status.PUBLISHED.equals(this.status);
+    }
 }

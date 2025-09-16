@@ -1,5 +1,6 @@
 package br.com.alura.AluraFake.user;
 
+import br.com.alura.AluraFake.course.Course;
 import br.com.alura.AluraFake.course.CourseReportDTO;
 import br.com.alura.AluraFake.course.FindCourseService;
 import org.springframework.stereotype.Component;
@@ -30,7 +31,7 @@ public class ReportUseCase {
         return new InstructorReportDTO(
                 user.getName(),
                 user.getEmail(),
-                courses.size(),
+                courses.stream().filter(Course::isPublished).count(),
                 courses.stream().map(CourseReportDTO::new).toList()
         );
     }
