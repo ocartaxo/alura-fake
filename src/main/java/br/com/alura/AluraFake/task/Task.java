@@ -17,6 +17,7 @@ public abstract class Task {
 
     private String statement;
 
+    @Column(name = "task_order")
     private int order;
 
     private final LocalDateTime createdAt =  LocalDateTime.now();
