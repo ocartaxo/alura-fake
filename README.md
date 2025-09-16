@@ -21,9 +21,7 @@ A publicação será realizada caso o curso cadastrado respeite as [validações
 
 ## Relatório
 
-- `GET/ instructor/{userId}/courses`
-
-Retorna um relatório do instrutor com os seus cursos criados e quantidade de cursos publicados
+- `GET/ instructor/{userId}/courses`: Retorna um relatório do instrutor com os seus cursos criados e quantidade de cursos publicados
 
 ## Executando o projeto
 
