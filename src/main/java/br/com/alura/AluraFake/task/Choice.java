@@ -8,10 +8,12 @@ import java.time.LocalDateTime;
 public class Choice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
+    @Column(name = "choice_option")
     private String option;
 
+    @Column(name = "is_correct")
     private boolean isCorrect;
 
     private LocalDateTime createdAt =  LocalDateTime.now();
@@ -28,4 +30,7 @@ public class Choice {
         this.isCorrect = isCorrect;
     }
 
+    public void setTask(Task task) {
+        this.task = task;
+    }
 }
