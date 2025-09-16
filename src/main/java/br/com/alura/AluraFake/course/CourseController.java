@@ -27,6 +27,7 @@ public class CourseController {
         this.publishCourseUseCase = publishCourseUseCase;
     }
 
+
     @PostMapping("/course/new")
     public ResponseEntity createCourse(@Valid @RequestBody NewCourseDTO newCourse) {
         createCourseUseCase.execute(newCourse);
@@ -38,7 +39,7 @@ public class CourseController {
         return ResponseEntity.ok(findAllCourseUseCase.execute());
     }
 
-    @PostMapping("/course/{id}/publish")
+    @PutMapping("/course/{id}/publish")
     public ResponseEntity publishCourse(@PathVariable("id") Long id) {
         publishCourseUseCase.execute(id);
         return ResponseEntity.ok().build();
