@@ -1,5 +1,6 @@
 package br.com.alura.AluraFake.course;
 
+import br.com.alura.AluraFake.user.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,5 +24,9 @@ public class FindCourseService {
 
     public List<Course> findAllCourses() {
         return courseRepository.findAll();
+    }
+
+    public List<Course> findAllByInstructor(User instructor) {
+        return courseRepository.findAllByInstructor(instructor);
     }
 }
